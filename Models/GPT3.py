@@ -1,27 +1,20 @@
 import openai
 
+
 class GPT3():
     """
-    GPT3 API
+    default GPT3 Model(text-davinci-002)
     """
 
-    def __init__(self,
-                 engine="text-davinci-002",
-                 max_out_length=200,
-                 top_p=1.0,
-                 # top_k=3,
-                 temperature=0.9,
-                 frequency_penalty=0.0,
-                 presence_penalty=0.0, ):
+    def __init__(self, api_key, top_p):
         self.openai = openai
-        self.openai.api_key = "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"
-        self.engine = engine
-        self.max_out_length = max_out_length
+        self.openai.api_key = api_key
+        self.engine = 'text-davinci-002'
+        self.max_out_length = '200'
         self.top_p = top_p
-        # self.top_k = top_k
-        self.temperature = temperature
-        self.frequency_penalty = frequency_penalty
-        self.presence_penalty = presence_penalty
+        self.temperature = 0.5
+        self.frequency_penalty = 0
+        self.presence_penalty = 0
 
     def generate_output(self, input_text):
         response = self.openai.Completion.create(
@@ -35,3 +28,14 @@ class GPT3():
         )
         model_output = response['choices'][0]['text']
         return model_output
+
+
+class GPT3Greedy(GPT3):
+    def __init__(self):
+        super(GPT3Greedy, self).__init__()
+        self.top_p = 0
+
+class GPT3Topp(GPT3)
+    def __init__(self, top_p):
+        super(GPT3Topp, self).__init__()
+        self.top_p=top_p
