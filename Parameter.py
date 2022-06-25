@@ -5,24 +5,25 @@
 # @File    : Parameters.py
 # @Create Comment  :
 
-class Parameters:
+class Parameter:
     def __init__(self,
                  prompt,
                  model='GPT3',
                  model_type='text-davinci-002',
-                 greedy=True,
+                 greedy=False,
                  max_out_length=200,
                  top_p=0.5,
                  temperature=0.5,
                  frequency_penalty=0,
                  presence_penalty=0,
                  ):
+
         self.parameters = {
             'model': model,
             'model_type': model_type,
             'greedy': greedy,
             'max_out_length': max_out_length,
-            'top_p': top_p,
+            'top_p': 0 if greedy else top_p,
             'temperature': temperature,
             'frequency_penalty': frequency_penalty,
             'presence_penalty': presence_penalty,
