@@ -1,5 +1,5 @@
 import openai
-API_KEY = "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"
+API_KEY = "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"
 
 class GPT3():
     """

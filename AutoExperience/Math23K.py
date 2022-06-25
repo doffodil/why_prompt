@@ -47,6 +47,7 @@ class AutoExpMath23K():
             result['model_corrent'] = self.is_model_correct(item, result[
                 'model_output'])
             result_data.append(result)
+            time.sleep(2)
         pd_result_data = pd.DataFrame(result_data)
 
         experience_result = dict()
