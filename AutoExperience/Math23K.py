@@ -61,6 +61,9 @@ class AutoExpMath23K():
         # add log and excel to record experience_result
         logger.info(experience_result)
         pd_result_data.to_excel(f'./{experience_result["datetime"]}.xlsx')
+        with open(f'./{experience_result["datetime"]}.json', 'w', encoding='utf-8') as f:
+            json.dump(experience_result, f, ensure_ascii=False)
+            f.close()
         return experience_result
 
     def format_model_input(self, data_item, prompt):

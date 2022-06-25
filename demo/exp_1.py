@@ -6,7 +6,7 @@
 # @Create Comment  : 测试不同的prompt在Math23K上的精度表现，统计方式包含greedy和vote两种
 import json
 
-from Parameter import Parameter
+from AutoExperience.Parameter import Parameter
 from AutoExperience.Math23K import AutoExpMath23K
 
 # set parameters
@@ -24,10 +24,5 @@ class exp_demo(AutoExpMath23K):
 exp = exp_demo(parameter=exp_parameter)
 
 exp_result = exp.get_experience_result(data_type='tiny')
-
-with open('./exp_demo.json', 'w', encoding='utf-8') as f:
-    json.dump(exp_result, f, ensure_ascii=False)
-    f.close()
-
 print(exp_result) # TODO: Better display
 print()
