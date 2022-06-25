@@ -10,11 +10,19 @@ from Parameter import Parameter
 from AutoExperience.Math23K import AutoExpMath23K
 
 # set parameters
-exp1_parameter = Parameter(
+exp_parameter = Parameter(
     prompt='',
     greedy=True
 )
-exp1 = AutoExpMath23K(exp1_parameter)
-exp1_result = exp1.get_experience_result(data_type='tiny')
-print(exp1_result) # TODO: Better display
+
+class exp_demo(AutoExpMath23K):
+    def format_model_input(self, data_item, prompt):
+        model_iput = f"问题：{data_item['original_text']}\n" \
+                     f"答案：按照以下思路作答，"
+        return model_iput
+
+exp = exp_demo(parameter=exp_parameter)
+
+exp_result = exp.get_experience_result(data_type='tiny')
+print(exp_result) # TODO: Better display
 print()

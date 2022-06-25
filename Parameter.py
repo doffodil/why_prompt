@@ -10,7 +10,7 @@ class Parameter:
                  prompt,
                  model='GPT3',
                  model_type='text-davinci-002',
-                 greedy=False,
+                 greedy=True,
                  max_out_length=200,
                  top_p=0.5,
                  temperature=0.5,
