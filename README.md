@@ -157,4 +157,5 @@ prompt：传入参数中的prompt，我更愿意称之为**关键提示信息**
 
 # TODO list
 - 当greedy=False时，使用vote计算accuracy
+- openai 调用限制，多次调用后会把我的key重置。加了两秒等待也不行
 - 增加其他模型【opt】
