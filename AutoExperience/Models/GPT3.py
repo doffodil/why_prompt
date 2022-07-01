@@ -1,5 +1,5 @@
 import openai
-API_KEY = "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"
+API_KEY = "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"
 
 class GPT3():
     """
@@ -10,20 +10,22 @@ class GPT3():
         self.openai = openai
         self.openai.api_key = API_KEY
         self.engine = parameters['model_type']
-        self.max_out_length = parameters['max_out_length']
+        self.max_tokens = parameters['max_tokens']
         self.top_p = parameters['top_p']
         self.temperature = parameters['temperature']
         self.frequency_penalty = parameters['frequency_penalty']
         self.presence_penalty = parameters['presence_penalty']
+        self.suffix = parameters['suffix']
 
     def generate_output(self, input_text):
         response = self.openai.Completion.create(
             engine=self.engine,
-            max_tokens=self.max_out_length,
+            max_tokens=self.max_tokens,
             top_p=self.top_p,
             temperature=self.temperature,
             frequency_penalty=self.frequency_penalty,
             presence_penalty=self.presence_penalty,
+            suffix = self.suffix,
             prompt=input_text,
         )
         model_output = response['choices'][0]['text']

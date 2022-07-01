@@ -1,0 +1,1 @@
+insert-model 效果尝试，与complete model并无区别

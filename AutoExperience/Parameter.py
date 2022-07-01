@@ -16,6 +16,8 @@ class Parameter:
                  temperature=0.5,
                  frequency_penalty=0,
                  presence_penalty=0,
+                 suffix=None,
+                 max_tokens=256,
                  ):
 
         self.parameters = {
@@ -27,7 +29,10 @@ class Parameter:
             'temperature': temperature,
             'frequency_penalty': frequency_penalty,
             'presence_penalty': presence_penalty,
-            'prompt':prompt
+            'prompt':prompt,
+            'suffix':suffix,
+            'max_tokens':max_tokens,
+            'best_of': 1,
         }
 
     def get_all_parameters(self):

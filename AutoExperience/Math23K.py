@@ -56,7 +56,7 @@ class AutoExpMath23K():
         experience_result['accuracy'] = self.calculate_accuracy(data_type,
                                                                 result_data)
         experience_result['datetime'] = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-        experience_result['prompt'] = self.parameters['prompt']
+        experience_result['params'] = self.parameters
 
         # add log and excel to record experience_result
         logger.info(experience_result)
